@@ -4,7 +4,8 @@
   "author": "zachrnolan",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d build --presets env,stage-2,react --plugins babel-plugin-transform-react-jsx",
+    "prebuild": "babel src -d build --presets env,stage-2,react --plugins babel-plugin-transform-react-jsx",
+    "build": "node ./node_modules/webpack/bin/webpack.js",
     "start": "node build/server/server.js",
     "lint": "./node_modules/.bin/eslint server client shared iso-middleware --ext .js,.jsx --fix"
   },
@@ -18,6 +19,7 @@
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
