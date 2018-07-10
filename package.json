@@ -4,7 +4,8 @@
   "author": "zachrnolan",
   "license": "MIT",
   "scripts": {
-    "start": "node server/server.js",
+    "build": "babel src -d build --presets env,stage-2,react --plugins babel-plugin-transform-react-jsx",
+    "start": "node build/server/server.js",
     "lint": "./node_modules/.bin/eslint server client shared iso-middleware --ext .js,.jsx --fix"
   },
   "repository": {
@@ -14,9 +15,13 @@
   "dependencies": {
     "apollo-server": "^2.0.0-rc.5",
     "apollo-server-express": "^2.0.0-rc.5",
+    "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.5",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "eslint": "^5.0.1",
     "eslint-config-airbnb": "^17.0.0",
     "eslint-plugin-import": "^2.13.0",

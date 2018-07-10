@@ -1,8 +1,7 @@
-const express = require('express')
-const { ApolloServer, gql } = require('apollo-server')
-const { registerServer } = require('apollo-server-express')
-const path = require('path')
-const renderRouterMiddleware = require('../iso-middleware/renderRoute')
+import express from 'express'
+import { ApolloServer, gql } from 'apollo-server'
+import path from 'path'
+import renderRouterMiddleware from '../iso-middleware/renderRoute'
 
 const projects = [
   {
@@ -70,7 +69,7 @@ const app = express()
 
 const cors = { origin: 'http://localhost:3000' }
 
-const buildPath = path.join(__dirname, '../', 'build')
+const buildPath = path.join(__dirname, '../../', 'build')
 
 // root points to static build
 app.use('/', express.static(buildPath))
@@ -81,6 +80,4 @@ server.applyMiddleware({ app, cors })
 // all other routes go through iso-middleware
 app.use('*', renderRouterMiddleware)
 
-app.listen({ port: 4000 }, () =>
-  console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
-)
+app.listen({ port: 4000 }, () => console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`))
