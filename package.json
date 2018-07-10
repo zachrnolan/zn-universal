@@ -7,7 +7,7 @@
     "prebuild": "babel src -d build --presets env,stage-2,react --plugins babel-plugin-transform-react-jsx",
     "build": "node ./node_modules/webpack/bin/webpack.js",
     "start": "node build/server/server.js",
-    "lint": "./node_modules/.bin/eslint server client shared iso-middleware --ext .js,.jsx --fix"
+    "lint": "./node_modules/.bin/eslint src --ext .js,.jsx --fix"
   },
   "repository": {
     "type": "git",

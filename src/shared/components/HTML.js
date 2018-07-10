@@ -6,15 +6,8 @@ const HTML = ({ html, serverState }) => (
       <title>ZN Universal</title>
     </head>
     <body>
-      <div
-        id="root"
-        dangerouslySetInnerHTML={{ __html: html }}
-      />
-      <script dangerouslySetInnerHTML={{
-        __html: `window.__SERIALIZED_STATE__ = JSON.stringify(${serverState})`,
-      }}
-      />
-      <script type="application/javascript" src="/bundle.js" />
+      <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
+      <script type="application/javascript" src="/bundle.js" data-server-state={JSON.stringify(serverState)} id='server-state' />
     </body>
   </html>
 )

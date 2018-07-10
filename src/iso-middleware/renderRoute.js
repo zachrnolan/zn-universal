@@ -1,20 +1,16 @@
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
-// const matchRoutes = require('react-router-config').matchRoutes
-// const routes = require('../shared/routes')
 import HTML from '../shared/components/HTML'
 import App from '../shared/App'
 
-function renderRoute(req, res) {
+export default function renderRoute(req, res) {
   const router = (
-    <StaticRouter location={req.url} context={{}}>
+    <StaticRouter location={req.originalUrl} context={{}}>
       <App />
     </StaticRouter>
   )
   const app = renderToString(router)
-  const html = renderToString(<HTML html={app} />)
+  const html = renderToString(<HTML html={app} serverState={{}} />)
   return res.send(`<!DOCTYPE html>${html}`)
 }
-
-module.exports = renderRoute

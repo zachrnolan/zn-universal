@@ -1,11 +1,11 @@
 import React from 'react'
-// import { renderRoutes } from 'react-router-config';
-// import routes from './routes';
+import { renderRoutes } from 'react-router-config'
+import routes from './routes'
 
-const App = () => (
+const App = props => (
   <div>
-    <h1>App!!!</h1>
+    {renderRoutes(routes, props)}
   </div>
 )
 
-module.exports = App
+export default App
